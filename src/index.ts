@@ -14,7 +14,11 @@ async function main() {
   for await (const line of rl) {
     if (line.trim()) {
       const result = await matchVehicle(line);
-      results.push(result);
+      results.push({
+        Input: result.originalDescription,
+        'Vehicle ID': result.matchedVehicleId,
+        Confidence: result.confidence,
+      });
     }
   }
 

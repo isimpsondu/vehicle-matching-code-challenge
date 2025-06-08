@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Vehicle Matching Code Challenge",
   "scripts": {
+    "setup": "./scripts/setup.sh",
     "test": "jest",
     "test:watch": "jest --watch"
   },

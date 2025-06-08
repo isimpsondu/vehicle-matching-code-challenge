@@ -12,7 +12,7 @@ Instead of parsing the input into structured fields (`make`, `model`, `badge`, e
 
 1. Normalize each vehicle in the DB into a flat string:
    ```
-   "Toyota Camry Hybrid-Petrol Automatic FWD"
+   "Toyota Camry Ascent Automatic Hybrid-Petrol Front Wheel Drive"
    ```
 2. Normalize each input line the same way.
 3. Use `string-similarity` to compute a fuzzy similarity score.
@@ -40,13 +40,25 @@ Parse each line into attributes using regexes or NLP, then compare each field to
 | Scoring clarity              | ✅ Per-attribute             | ⚠️ Approximate              |
 | Faster to implement          | ❌ Slow                      | ✅ Very fast                |
 
-## 🧪 Run Locally
+## Prerequisites
+
+- Docker Desktop (for macOS/Windows) or Docker Engine with Docker Compose (for Linux)
+
+## 🧪 Run The Setup
 ```bash
-npm install
+npm run setup
+```
+This will:
+   - Install all dependencies
+   - Start PostgreSQL docker instance
+   - Run database migrations
+
+## 🧪 Run The App
+```bash
 npx ts-node src/index.ts
 ```
 
-## 🧪 Run Tests
+## 🧪 Run The Tests
 ```bash
 npm test
 ```
