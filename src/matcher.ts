@@ -1,7 +1,14 @@
 import { pool } from './db';
-import { normalizeText, computeSimilarityScore, scaleToConfidence, vehicleToPlainText } from './util';
+import {
+  normalizeText,
+  computeSimilarityScore,
+  scaleToConfidence,
+  vehicleToPlainText,
+} from './util';
 
-export async function matchVehicle(input: string): Promise<{ originalDescription: string, matchedVehicleId: string | null, confidence: number }> {
+export async function matchVehicle(
+  input: string,
+): Promise<{ originalDescription: string; matchedVehicleId: string | null; confidence: number }> {
   const inputText = normalizeText(input);
 
   // Join vehicle with listing counts
@@ -29,7 +36,7 @@ export async function matchVehicle(input: string): Promise<{ originalDescription
 
   // If multiple best matches, return the one with most listings
   const bestMatch = bestMatches.reduce((max, curr) => {
-    return (!max || parseInt(curr.listing_count) > parseInt(max.listing_count)) ? curr : max;
+    return !max || parseInt(curr.listing_count) > parseInt(max.listing_count) ? curr : max;
   }, null);
 
   return {

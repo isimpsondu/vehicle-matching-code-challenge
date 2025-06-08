@@ -17,5 +17,7 @@ export function scaleToConfidence(similarity: number): number {
 }
 
 export function vehicleToPlainText(vehicle: any): string {
-  return normalizeText(`${vehicle.make} ${vehicle.model} ${vehicle.badge} ${vehicle.fuel_type} ${vehicle.transmission_type} ${vehicle.drive_type}`);
+  return normalizeText(
+    `${vehicle.make} ${vehicle.model} ${vehicle.badge} ${vehicle.fuel_type} ${vehicle.transmission_type} ${vehicle.drive_type}`,
+  );
 }
