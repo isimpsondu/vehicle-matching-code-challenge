@@ -43,6 +43,7 @@ Parse each line into attributes using regexes or NLP, then compare each field to
 
 ## 📦 Prerequisites
 
+- Node.js (v23.7.0 or higher)
 - Docker Desktop (for macOS/Windows) or Docker Engine with Docker Compose (for Linux)
 
 ## ⏳ Run The Setup

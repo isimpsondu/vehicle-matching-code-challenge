@@ -2,6 +2,16 @@
 
 set -e
 
+echo "🚀 Setting up the project..."
+
+# Source the Node.js setup script
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+source "$SCRIPT_DIR/node_setup.sh"
+
+# Setup Node.js environment with required versions
+echo "🔧 Setting up Node.js environment..."
+setup_node_environment "23.7.0" "10.0.0"
+
 # Install dependencies
 echo "📦 Installing dependencies..."
 npm install
