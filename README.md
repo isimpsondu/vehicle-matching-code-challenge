@@ -40,11 +40,11 @@ Parse each line into attributes using regexes or NLP, then compare each field to
 | Scoring clarity              | ✅ Per-attribute             | ⚠️ Approximate              |
 | Faster to implement          | ❌ Slow                      | ✅ Very fast                |
 
-## Prerequisites
+## 📦 Prerequisites
 
 - Docker Desktop (for macOS/Windows) or Docker Engine with Docker Compose (for Linux)
 
-## 🧪 Run The Setup
+## ⏳ Run The Setup
 ```bash
 npm run setup
 ```
@@ -53,7 +53,7 @@ This will:
    - Start PostgreSQL docker instance
    - Run database migrations
 
-## 🧪 Run The App
+## 🚀 Run The App
 ```bash
 npx ts-node src/index.ts
 ```
