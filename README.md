@@ -51,9 +51,10 @@ Parse each line into attributes using regexes or NLP, then compare each field to
 npm run setup
 ```
 This will:
-   - Install all dependencies
-   - Start PostgreSQL docker instance
-   - Run database migrations
+  - Set up Node.js environment
+  - Install all dependencies
+  - Start PostgreSQL docker instance
+  - Run database migrations
 
 ## 🚀 Run The App
 ```bash
