@@ -1,7 +1,9 @@
 import fs from 'fs';
 import readline from 'readline';
 import path from 'path';
-import { matchVehicle } from './matcher';
+import { VehicleService } from './services/vehicle';
+import { VehicleRepository } from './repository/vehicle';
+import { pool } from './repository/db';
 
 async function main() {
   const rl = readline.createInterface({
@@ -9,15 +11,17 @@ async function main() {
     crlfDelay: Infinity,
   });
 
-  const results: any[] = [];
+  const results = [];
+  const vehicleRepository = new VehicleRepository(pool);
+  const vehicleService = new VehicleService(vehicleRepository);
 
   for await (const line of rl) {
     if (line.trim()) {
-      const result = await matchVehicle(line);
+      const result = await vehicleService.getTheBestMatch(line);
       results.push({
         Input: result.originalDescription,
         'Vehicle ID': result.matchedVehicleId,
-        Confidence: result.confidence,
+        Confidence: result.confidenceScore,
       });
     }
   }
