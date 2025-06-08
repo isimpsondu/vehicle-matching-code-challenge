@@ -14,7 +14,6 @@ export class VehicleService {
   async getTheBestMatch(vehicleTitle: string): Promise<VehicleMatchResult> {
     const inputText = normalizeText(vehicleTitle);
 
-    // Join vehicle with listing counts
     const vehicles = await this.vehicleRepo.getAll();
 
     let bestMatches: Vehicle[] = [];

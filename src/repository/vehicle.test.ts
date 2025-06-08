@@ -34,4 +34,13 @@ describe('Vehicle Repository', () => {
     const result = await vehicleRepository.getAll();
     expect(result.length).toBe(2);
   });
+
+  it('should return 0 vehicles if database is not funcational', async () => {
+    const mockPool = {
+      query: jest.fn().mockRejectedValue(new Error('database not funcational')),
+    };
+    const vehicleRepository = new VehicleRepository(mockPool);
+    const result = await vehicleRepository.getAll();
+    expect(result.length).toBe(0);
+  });
 });

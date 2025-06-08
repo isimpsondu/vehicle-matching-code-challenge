@@ -26,7 +26,7 @@ async function main() {
     }
   }
 
-  fs.writeFileSync('output.json', JSON.stringify(results, null, 2));
+  fs.writeFileSync('output.json', JSON.stringify(results));
   console.log('Matching complete. See output.json');
 }
 
