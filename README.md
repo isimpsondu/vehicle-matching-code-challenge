@@ -6,6 +6,7 @@ This project implements a vehicle matching system that maps free-text car descri
 Each line in `input.txt` contains a user-provided car description, which may be vague, incomplete, or inconsistent. The goal is to:
 - Match each description to a row in the `vehicle` table.
 - Output the matching `vehicle.id` and a confidence score (0–10).
+- If multiple vehicles share the same best match score, the vehicle with the most listings in the `listing` table is returned.
 
 ## ✅ Current Solution: Plain-Text to Plain-Text Fuzzy Matching
 Instead of parsing the input into structured fields (`make`, `model`, `badge`, etc.), we:
