@@ -50,10 +50,24 @@ Parse each line into attributes using regexes or NLP, then compare each field to
 
   ```folder
   .
-  ├── scripts/         # Setup and utility scripts
+  ├── scripts/
+  │   ├── data.sql               # Data source
+  │   ├── setup.sh               # Environment and data setup
+  │   ├── node_setup.sh          # Node.js environment setup
   ├── src/
-  │   ├── repository/  # Repository layer 
-  │   ├── services/    # Service layer
+  │   ├── index.ts               # CLI-based main runner
+  │   ├── repository/            # Repository layer
+  │   │   ├── db.ts              # PostgreSQL pool
+  │   │   ├── dto.ts             # DTO interface
+  │   │   ├── retry.ts           # Retry utility
+  │   │   ├── retry.test.ts      # Unit tests
+  │   │   ├── vehicle.ts         # Vehicle repository
+  │   │   ├── vehicle.test.ts    # Unit tests
+  │   ├── services/              # Service layer
+  │   │   ├── util.ts            # Text utility
+  │   │   ├── util.test.ts       # Unit tests
+  │   │   ├── vehicle.ts         # Vehicle service
+  │   │   ├── vehicle.test.ts    # Unit tests
   ```
 
 ## ⏳ Run The Setup
@@ -63,7 +77,7 @@ npm run setup
 This will:
   - Set up Node.js environment
   - Install all dependencies
-  - Start PostgreSQL docker instance
+  - Start PostgreSQL docker container
   - Run database migrations
 
 ## 🚀 Run The App
