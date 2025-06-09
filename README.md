@@ -46,6 +46,16 @@ Parse each line into attributes using regexes or NLP, then compare each field to
 - Node.js (v23.7.0 or higher)
 - Docker Desktop (for macOS/Windows) or Docker Engine with Docker Compose (for Linux)
 
+## 📁 Project Structure
+
+  ```folder
+  .
+  ├── scripts/         # Setup and utility scripts
+  ├── src/
+  │   ├── repository/  # Repository layer 
+  │   ├── services/    # Service layer
+  ```
+
 ## ⏳ Run The Setup
 ```bash
 npm run setup
