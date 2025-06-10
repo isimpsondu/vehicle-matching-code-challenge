@@ -41,6 +41,21 @@ Parse each line into attributes using regexes or NLP, then compare each field to
 | Scoring clarity              | ✅ Per-attribute             | ⚠️ Approximate              |
 | Faster to implement          | ❌ Slow                      | ✅ Very fast                |
 
+### 🚀 Future Improvements for Scale
+To support large-scale datasets efficiently, the following improvements can be considered:
+
+#### 1. Fuzzy Matching in SQL with Trigram Indexes
+Use PostgreSQL's `pg_trgm` extension to compute similarity scores directly in the database. This allows efficient fuzzy text matching at scale, especially when combined with GIN indexes.
+
+#### 2. Pre-filtering with Heuristics
+Extract partial structure such as `make` and `model` from input text, and use them to limit candidate rows in SQL before performing fuzzy matching in memory.
+
+#### 3. In-Memory Caching
+Preload and normalize all vehicle records at application start. Store them in memory or a fast-access store (like Redis) to avoid repeated DB reads and allow fast, repeated fuzzy comparisons.
+
+#### 4. Materialized Views for Listing Stats
+Use materialized views to pre-aggregate listing counts for each vehicle, improving JOIN and ranking performance without recalculating on every query.
+
 ## 📦 Prerequisites
 
 - Node.js (v23.7.0 or higher)
